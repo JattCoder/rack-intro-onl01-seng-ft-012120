@@ -1,8 +1,6 @@
 require 'rack'
 class MyServer
-    def call(evn)
-        resp = Rack::Response.new
-        resp.write 'Hello'
-        resp.finish
+    my_server = Proc.new do
+      [200,{'Content-Type' => 'text/html'},['<em>Hello</em>']]
     end
 end
